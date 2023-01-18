@@ -56,7 +56,8 @@ function my_template_select($template)
 
     if (isset($templatess[$page_tem_slug])) {
 
-        $template = plugin_dir_path(__FILE__) . 'my_special_template.php';
+        $template = plugin_dir_path( __FILE__ ) . 'my_special_template.php';
+
     }
 
 
