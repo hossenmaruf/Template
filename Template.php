@@ -21,7 +21,7 @@ function my_template()
 {
 
     $temps = [];
-    $temps['my_special_template'] = 'My Special Template';
+    $temps['my_special_template.php'] = 'My Special Template';
 
 
     return $temps;
@@ -56,10 +56,7 @@ function my_template_select($template)
 
     if (isset($templatess[$page_tem_slug])) {
 
-
-        //  $template = plugin_dir_path(__FILE__).'my_special_template/'.$page_tem_slug;
-
-        $template = plugin_dir_path(__FILE__) . 'templates/' . $page_tem_slug;
+        $template = plugin_dir_path(__FILE__) . 'my_special_template.php';
     }
 
 
