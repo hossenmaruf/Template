@@ -20,7 +20,7 @@ Text Domain: Template
 function my_template()
 {
 
-           $temps = [];
+    $temps = [];
     $temps['my_special_template'] = 'My Special Template';
 
 
@@ -43,3 +43,27 @@ function my_template_register($page_templates, $theme, $post)
 
 
 add_filter('theme_page_templates', 'my_template_register', 10, 3);
+
+function my_template_select($template)
+{
+
+    global $post;
+
+    $page_tem_slug = get_page_template_slug($post->ID);
+
+
+    $templatess = my_template();
+
+    if (isset($templatess[$page_tem_slug])) {
+
+
+        //  $template = plugin_dir_path(__FILE__).'my_special_template/'.$page_tem_slug;
+
+        $template = plugin_dir_path(__FILE__) . 'templates/' . $page_tem_slug;
+    }
+
+
+    return $template;
+}
+
+add_filter('template_include', 'my_template_select', 99);
